@@ -1,0 +1,10 @@
+version: "2"
+services:
+  registration:
+    build: ""
+    container_name: registrationcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8055:8055

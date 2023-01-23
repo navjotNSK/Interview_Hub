@@ -1,0 +1,62 @@
+version: "2"
+services:
+  registration:
+    build: RegistrationService/
+    container_name: registrationcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8080:8080
+      
+  email:
+    build: EmailService/
+    container_name: emailcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8084:8084
+      
+  feedback:
+    build: FeedbackService/
+    container_name: feedbackcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8085:8085  
+      
+   
+  authentication:
+    build: AuthenticationService/
+    container_name: authcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8081:8081
+      
+  tag:
+    build: TAGService/
+    container_name: tagcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8083:8083
+               
+  interviewer:
+    build: InterviewerService/
+    container_name: interviewercont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8082:8082    
+      
+
+      
+
+ 
+        

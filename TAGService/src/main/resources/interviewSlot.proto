@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+option java_package="com.interviewHub.slotBooking";
+
+service slotBooking{
+	
+	rpc scheduleInterview(slotDetails) returns (bookingMessage);
+	
+	rpc rescheduleInterview(rescheduleDetails) returns (rescheduleMessage);
+	
+	rpc updateBookingStatus(updateDetails) returns (bookingMessage);
+	
+	rpc getSlotIdForReschedule(slotIdDetails) returns (slotIdResponse);
+		
+	rpc getScheduledInterviewByInterviewerEmailId(interviewerId) returns (bookingMessageResponse);
+	
+	rpc getScheduledInterviewByTagTeamEmailId(tagTeamId) returns (bookingMessageResponse);
+	
+}
+
+
+
+message slotDetails{
+
+	string interviewerEmailId=1;
+	string intervieweeEmailId=2;
+	string tagTeamEmailId=3;
+	string date=4;
+	string boookingStatus=5;
+	string startTime=6;
+	string endTime=7;
+	string techStack=8;
+	string description=9;
+}
+
+message bookingMessage{
+	
+	int32 id=1;
+	string interviewerEmailId=2;
+	string intervieweeEmailId=3;
+	string tagTeamEmailId=4;
+	string date=5;
+	string boookingStatus=6;
+	string startTime=7;
+	string endTime=8;
+	string techStack=9;
+	string description=10;
+	
+}
+
+message rescheduleDetails{
+
+	int32 slotId=1;
+	string date=2;
+	string startTime=3;
+	string endTime=4;
+}
+
+
+message rescheduleMessage{
+	
+	string messageResponse=1;
+	int32 messageCode=2;
+	
+}
+
+
+message updateDetails{
+	
+	int32 id=1;
+	string boookingStatus=2;
+		
+}
+
+message slotIdDetails{
+	
+	string emailId=1;
+	string date=2;
+	string startTime=3;
+	string endTime=4;
+	
+}
+
+message slotIdResponse{
+	int32 slotId=1;
+}
+
+message interviewerId{
+	string emailId=1;
+}
+
+message bookingMessageResponse {
+repeated bookingDetail bookingDetailArray = 1;
+}
+
+message bookingDetail {
+
+	string id=1;
+	string interviewerEmailId=2;
+	string intervieweeEmailId=3;
+	string tagTeamEmailId=4;
+	string date=5;
+	string boookingStatus=6;
+	string startTime=7;
+	string endTime=8;
+	string techStack=9;
+	string description=10;
+}
+
+
+
+message tagTeamId{
+	
+	string emailId=1;
+
+}
+

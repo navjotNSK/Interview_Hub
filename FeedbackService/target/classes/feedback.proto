@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.interview_HUB.grpc";
+
+service feedback {
+  rpc addFeedback(feedbackMessage) returns(APIResponse);
+  rpc getAllFeedback(empty) returns(AllFeedbackResponse);
+
+}
+
+message feedbackMessage{
+  string email = 1;
+  string date= 2;
+  string writeReview = 3;
+}
+message empty{
+
+}
+
+message APIResponse{
+  string responseMessage = 1;
+  int32 responseCode = 2;
+}
+
+message AllFeedbackResponse{
+  repeated feedbackMessage messages = 1;
+}
+

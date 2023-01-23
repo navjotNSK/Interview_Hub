@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package ="com.EmailSending.project";
+service Email{
+  rpc sendEmailOnSlotBooking(Notifications) returns(APIResponse);
+  rpc sendEmailOnSlotUpdate(Notifications) returns(APIResponse);
+  rpc sendEmailOnSlotcancellation(Notifications) returns(APIResponse);
+}
+message Notifications{
+   string intervieweeName =1;
+   string ReceiverEmailId =2;
+   string job_title=3;
+  // string Subject =3;
+  // string MessageText =4;
+   string StartTime =4;
+   string  EndTime =5;
+   string Date =6;
+   string InterviewrName =7;
+   string meeting_invitation_link=8;
+}
+message APIResponse{
+   string responseMessage=1;
+   int32 messageCode=2;
+}

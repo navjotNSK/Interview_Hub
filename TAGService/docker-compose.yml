@@ -1,0 +1,10 @@
+version: "2"
+services:
+  booking:
+    build: ""
+    container_name: container
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 9080:9080
