@@ -8,11 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="InterviewerService" />
         <module name="TAGService" />
+        <module name="Interview-HUB" />
+        <module name="FeedbackService" />
         <module name="EmailService" />
         <module name="RegistrationService" />
         <module name="AuthenticationService" />
-        <module name="FeedbackService" />
+        <module name="GLProduct4" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="interviewHub" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package registration;
+
+option java_package = "com.gl.grpc";
+option java_multiple_files = true;
+
+message deleteRequest {
+string emailId = 1;
+
+}
+
+message deleteResponse {
+ string responseMessage = 1;
+  int32 responseCode = 2;
+}

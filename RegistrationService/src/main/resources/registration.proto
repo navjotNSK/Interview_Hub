@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package registration;
+
+import "addUser.proto";
+import "updateUser.proto";
+import "deleteUser.proto";
+import "getUserByMail.proto";
+import "getUsersByTechStack.proto";
+
+
+option java_package = "com.gl.registration";
+option java_multiple_files = true;
+
+service registrationServices {
+
+rpc addUser(addRequest) returns (addResponse);
+rpc updateUser(updateRequest) returns (updateResponse);
+rpc deleteUser(deleteRequest) returns (deleteResponse);
+rpc getUserByMail(getUserByMailRequest) returns (getUserByMailResponse);
+rpc getUsersByTechStack(getUserByTechRequest) returns (getUserByTechResponse);
+
+}
+
+

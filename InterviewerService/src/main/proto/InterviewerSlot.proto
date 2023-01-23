@@ -1,0 +1,73 @@
+syntax="proto3";
+option java_multiple_files=true;
+option java_package="com.GLProduct.interviewer";
+message InterviewerSlot
+{
+ string interviewerEmailId=1;
+string interviewerName=2;
+repeated Slot slot=3;
+}
+
+message Slot {
+ string date=1;
+ string startTime=2;
+ string endTime=3;
+ string slotStatus=4;
+}
+
+
+message APIRESPONSE
+{
+ string bookingMsg=5;
+ string interviewEmailId=6;
+ string interviewerName=7;
+ repeated ResponseSlot response_slot=8;
+}
+message ResponseSlot{
+ int32 slotId=10;
+ string slot_date=11;
+ string slotStatus=14;
+ string startTime=12;
+ string endTime=13;
+}
+message GetSlotById{
+ string interviewerEmailId=1;
+}
+message slotsByDate
+{
+ string slotDate=1;
+ string interviewerEmailId=2;
+}
+message slotDeletion{
+ int32 slotId=1;
+}
+message slotUpdationResponse
+{
+ string message=1;
+ string interviewerName=2;
+ string interviewerEmailId=3;
+ ResponseSlot responseSlot=4;
+}
+message SlotUpdation
+{
+ int32 slot_id=1;
+ string updated_slot_status=2;
+}
+ message updateSlot
+{
+ int32 slot_id=1;
+ string slot_date=2;
+ string slot_start_time=3;
+ string slot_end_time=4;
+ string status=5;
+}
+service InterviewerService
+{
+ rpc newInterviewSlot(InterviewerSlot) returns( APIRESPONSE);
+ rpc getAllSlotsByEmailId(GetSlotById) returns(stream ResponseSlot);
+ rpc getAllSlotsByDate(slotsByDate) returns(stream ResponseSlot);
+ rpc deleteSlot(slotDeletion) returns (slotUpdationResponse);
+ rpc updateSlotStatus(SlotUpdation) returns (slotUpdationResponse);
+ rpc updateSlotRequest(updateSlot) returns (slotUpdationResponse);
+}
+

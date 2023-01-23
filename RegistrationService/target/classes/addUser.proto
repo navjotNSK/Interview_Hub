@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package registration;
+
+option java_package = "com.gl.grpc";
+option java_multiple_files = true;
+
+message addRequest {
+string userName = 1;
+int64 phoneNo = 2;
+string emailId = 3;
+string userPassword = 4;
+string userRole = 5;
+string techStack = 6;
+string jobRole = 7;
+
+
+}
+
+message addResponse {
+ string responseMessage = 1;
+  int32 responseCode = 2;
+}

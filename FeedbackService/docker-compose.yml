@@ -1,0 +1,10 @@
+version: "2"
+services:
+  feedback:
+    build: ""
+    container_name: feedbackcont
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8080:8080
