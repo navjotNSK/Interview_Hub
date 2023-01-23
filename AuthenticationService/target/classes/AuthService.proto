@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_package = "org.meetup";
+
+service AuthService{
+  rpc Login(requestLogin) returns (APIResponse);
+}
+
+message requestLogin{
+  string userEmail = 1;
+  string password = 2;
+  string role=3;
+}
+
+message APIResponse{
+  string responseMsg=1;
+}
