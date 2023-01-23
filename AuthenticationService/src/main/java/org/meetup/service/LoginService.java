@@ -16,7 +16,7 @@ import java.sql.*;
 public class LoginService extends AuthServiceGrpc.AuthServiceImplBase {
     String url = "jdbc:mysql://localhost:3306/InterviewHub";
     String mysqlUname="root";
-    String mysqlPass="Root@123";
+    String mysqlPass="Root@123" ;
     @Override
     public void login(AuthServiceOuterClass.requestLogin request, StreamObserver<AuthServiceOuterClass.APIResponse> responseObserver) {
         System.out.println("Inside Login Service.");
